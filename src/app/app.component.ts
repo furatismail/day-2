@@ -11,26 +11,3 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'day-2';
 }
-
-
-// reducer.ts
-
-state = [];
-switch (Action.type) {
-  case 'ADD':
-
-    break;
-  case 'DELETE':
-
-    break;
-  default:
-    break;
-}
-
-// action.ts
-
-class ADD() {
-  constructor(payload: any) {
-
-  }
-}

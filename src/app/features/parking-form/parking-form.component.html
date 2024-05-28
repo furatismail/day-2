@@ -1,0 +1,51 @@
+<div class="apple-form">
+    <h1>Parking calculator & booking</h1>
+      <form #carForm="ngForm" (ngSubmit)="onSubmit(carForm)" novalidate>
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" [(ngModel)]="formData.fullname" #fullname="ngModel" #fullnameCtrl="ngModel" required />
+          <div *ngIf="fullnameCtrl.invalid && (fullnameCtrl.touched || carForm?.submitted)" class="error-message">
+            Full Name is required.
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <label for="floor">Floor</label>
+          <select id="floor" name="floor" [(ngModel)]="formData.floor" #floorCtrl="ngModel" required>
+            <option value="" disabled selected>Select your floor</option>
+            <option *ngFor="let floor of floors" [value]="floor">{{ floor }}</option>
+          </select>
+          <div *ngIf="floorCtrl.invalid && (floorCtrl.touched || carForm?.submitted)" class="error-message">
+            Floor selection is required.
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <label>Type of Car</label>
+          <div class="radio-group">
+            <div>
+              <input type="radio" id="small" name="carType" value="Small personal car" [(ngModel)]="formData.carType" #carType="ngModel" required />
+              <label for="small">Small personal car</label>
+            </div>
+            <div>
+              <input type="radio" id="medium" name="carType" value="Medium car (SUV)" [(ngModel)]="formData.carType" />
+              <label for="medium">Medium car (SUV)</label>
+            </div>
+            <div>
+              <input type="radio" id="big" name="carType" value="Bigger car (minivan)" [(ngModel)]="formData.carType" />
+              <label for="big">Bigger car (minivan)</label>
+            </div>
+            <div>
+              <input type="radio" id="bus" name="carType" value="Bus" [(ngModel)]="formData.carType" />
+              <label for="bus">Bus</label>
+            </div>
+          </div>
+          <div *ngIf="carType.invalid && (carType.touched || carForm?.submitted)" class="error-message">
+            Car type selection is required.
+          </div>
+        </div>
+    
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    
