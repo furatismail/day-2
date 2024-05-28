@@ -1,9 +1,10 @@
 import { createReducer, on } from "@ngrx/store"
 import * as ParkingCalculatorActions from './parking-calculator.actions'
+import { ParkingCalculatorState } from "./parking-calculator.model"
 
 export const featureKey = 'parkingCalculator'
 
-export const initialState: any = {
+export const initialState: ParkingCalculatorState = {
     calculation: undefined,
     loading: false,
     offers: [],
