@@ -29,5 +29,23 @@ export const reducer = createReducer(
             calculation: action.payload,
             loading: true
         })
-    })
+    }),
+    on(ParkingCalculatorActions.parkingCalculateSuccess,
+        (state, action) => {
+            return {
+                ...state,
+                offers: action.payload,
+                loading: false
+            }
+        }
+    ),
+    on(ParkingCalculatorActions.parkingCalculateError,
+        (state, action) => {
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        }
+    )
 )
