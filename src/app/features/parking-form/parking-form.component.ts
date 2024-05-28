@@ -2,6 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ParkingCalculatorFacade } from '../../core/parking-calculator/parking-calculator.facade';
+import { CarForm } from '../../shared/car-form.interface';
 
 @Component({
   selector: 'app-parking-form',
@@ -12,7 +13,7 @@ import { ParkingCalculatorFacade } from '../../core/parking-calculator/parking-c
 })
 export class ParkingFormComponent {
   private parkingCalculatorFacade = inject(ParkingCalculatorFacade);
-  formData = {} as any;
+  formData = {} as CarForm;
 
   floors = [
     '1 floor',
@@ -24,5 +25,6 @@ export class ParkingFormComponent {
     console.log(form)
     const payload = form?.value
     this.parkingCalculatorFacade.calculate(payload);
+    
   }
 }
